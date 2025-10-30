@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas
+  labels:
+    app: saas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas
+  template:
+      metadata:
+        labels:
+          app: saas
+      spec:
+        containers:
+          - name: saas
+            image: mochamadvarrel/saas:latest
+            ports:
+              - containerPort: 3000
+            imagePullPolicy: Always
